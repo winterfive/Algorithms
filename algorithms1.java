@@ -8,7 +8,7 @@ package com.LeeGainer.arrayStructures;
 public class ArrayStructure {
     
     // Parameters w/ magic numbers
-    // Github is adding anothere indent here for some reason
+    // Github is adding another indent here for some reason
 	private int[] theArray = new int[50];
 	private int arraySize = 10;
 
