@@ -6,12 +6,10 @@ package com.LeeGainer.arrayStructures;
  */
 
 public class ArrayStructure {
-    
-    // Parameters w/ magic numbers
-    // Github is adding another indent here for some reason
+	
 	private int[] theArray = new int[50];
 	private int arraySize = 10;
-
+	
 	/*
 	 * Generate an array of random ints
 	 * void -> void
@@ -27,14 +25,16 @@ public class ArrayStructure {
 	 * void -> void
 	 */	
 	public void printArray() {
+		System.out.println();
 		System.out.println("---------");
 		for(int i = 0; i < arraySize; i++) {
 			System.out.print("| " + i + " | ");
 			System.out.println(theArray[i] + " |");
 			System.out.println("---------");
 		}
+		System.out.println();
 	}
-	
+		
 	/*
 	 * Return element found at index
 	 * int -> int
@@ -100,9 +100,33 @@ public class ArrayStructure {
 			}
 		}
 		if(!valueInArray) {
-			indexesWithValue = "value was not found in the Array";
+			indexesWithValue = "value was not found in the Array\n";
 		}		
 		return indexesWithValue;
+	}
+	
+	/*
+	 * Bubble Sort
+	 * void -> void
+	 */
+	public void bubbleSort() {
+		for(int i = arraySize - 1; i > 1; i--) {
+			for(int j = 0; j < i; j++) {
+				if(theArray[j] > theArray[j + 1]) {
+					swap(j, j + 1);					
+				}
+			}
+		}
+	}
+	
+	/*
+	 * Swap values at 2 indexes
+	 * int, int -> void
+	 */	
+	public void swap(int index1, int index2) {
+		int swap = theArray[index1];
+		theArray[index1] = theArray[index2];
+		theArray[index2] = swap;
 	}
 	
 	
@@ -128,7 +152,10 @@ public class ArrayStructure {
 		myArray.printArray();
 		
 		String indexList = myArray.linearSearchforValue(9);
-		System.out.print("The value was found at index: " + indexList);		
+		System.out.print("The value was found at index: " + indexList);	
+		
+		myArray.bubbleSort();
+		myArray.printArray();
 	}
 
 }
