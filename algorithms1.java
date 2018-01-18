@@ -22,18 +22,22 @@ public class ArrayStructure {
 	}
 	
 	/*
-	 * Print array within a frame of pipes
+	 * Print array horizontally within a frame of pipes
 	 * void -> void
 	 */	
 	public void printArray() {
-		System.out.println();
-		System.out.println("---------");
-		for(int i = 0; i < arraySize; i++) {
-			System.out.print("| " + i + " | ");
-			System.out.println(theArray[i] + " |");
-			System.out.println("---------");
+		for(int i = 0; i < arraySize - 1; i++) {
+			if(theArray[i] < 10) {
+				System.out.print("|  " + theArray[i] + " ");
+			} else {
+				System.out.print("| " + theArray[i] + " ");
+			}			
 		}
-		System.out.println();
+		System.out.print("|\n");
+		for(int i = 0; i < arraySize - 1; i++) {
+			System.out.print("|  " + i + " ");
+		}
+		System.out.println("|\n");		
 	}
 		
 	/*
@@ -140,9 +144,9 @@ public class ArrayStructure {
 		
 		myArray.printArray();
 		
-		System.out.println(myArray.getElementAtIndex(3));
+		System.out.println(myArray.getElementAtIndex(3) + "\n");
 		
-		System.out.println(myArray.doesArrayContain(33));
+		System.out.println(myArray.doesArrayContain(33) + "\n");
 		
 		myArray.deleteElementInArray(7);
 		
@@ -153,7 +157,7 @@ public class ArrayStructure {
 		myArray.printArray();
 		
 		String indexList = myArray.linearSearchforValue(9);
-		System.out.print("The value was found at index: " + indexList);	
+		System.out.print("The value was found at index: " + indexList + "\n");	
 		
 		myArray.bubbleSort();
 		myArray.printArray();
