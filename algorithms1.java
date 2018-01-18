@@ -10,7 +10,7 @@ public class ArrayStructure {
     // Parameters w/ magic numbers	
 	private int[] theArray = new int[50];
 	private int arraySize = 10;
-	
+
 	/*
 	 * Generate an array of random ints
 	 * void -> void
