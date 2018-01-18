@@ -7,6 +7,7 @@ package com.LeeGainer.arrayStructures;
 
 public class ArrayStructure {
 	
+	// Fields w/ magic numbers
 	private int[] theArray = new int[50];
 	private int arraySize = 10;
 	
