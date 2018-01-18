@@ -6,7 +6,8 @@ package com.LeeGainer.arrayStructures;
  */
 
 public class ArrayStructure {
-	
+    
+    // Parameters w/ magic numbers	
 	private int[] theArray = new int[50];
 	private int arraySize = 10;
 	
@@ -91,20 +92,15 @@ public class ArrayStructure {
 		boolean valueInArray = false;		
 		String indexesWithValue = "";
 		
-		System.out.println("The value was found in the following: ");
-		
 		for(int i = 0; i < arraySize; i++) {
 			if(theArray[i] == value) {
 				valueInArray = true;
-				System.out.println(i + " ");
 				indexesWithValue+= i + " ";
 			}
 		}
 		if(!valueInArray) {
-			indexesWithValue = "None";
-			System.out.println(indexesWithValue);		
+			indexesWithValue = "value was not found in the Array";
 		}		
-		System.out.println();
 		return indexesWithValue;
 	}
 	
@@ -131,7 +127,7 @@ public class ArrayStructure {
 		myArray.printArray();
 		
 		String indexList = myArray.linearSearchforValue(9);
-		System.out.println(indexList);		
+		System.out.print("The value was found at index: " + indexList);		
 	}
 
 }
