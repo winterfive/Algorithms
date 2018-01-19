@@ -179,7 +179,6 @@ public class ArrayStructure {
 	
 	/*
 	 * Selection Sort
-	 * the CS50 "filing papers" sort
 	 * void -> void
 	 */	
 	public void selectionSort() {
@@ -194,6 +193,22 @@ public class ArrayStructure {
 		}		
 	}
 	
+	/*
+	 * Insertion Sort
+	 * the CS50 "exam booklets" sort
+	 * void -> void
+	 */
+	public void insertionSort() {		
+		for(int i = 1; i < arraySize; i++) {
+			int j = i;
+			int toInsert = theArray[i];
+			while((j > 0) && (theArray[j - 1] > toInsert)) {
+				theArray[j] = theArray[j - 1];
+				j--;
+			}
+			theArray[j] = toInsert;			
+		}
+	}	
 	
 	
 	public static void main(String[] args) {
@@ -231,7 +246,7 @@ public class ArrayStructure {
 		myArray.bubbleSortDescending();
 		myArray.printArray();
 		
-		// Create a new unsorted array object following sort examples
+		// Create a new unsorted array object for the following sort examples
 		ArrayStructure secondArray = new ArrayStructure();
 		secondArray.generateRandomArray();
 		
@@ -241,5 +256,12 @@ public class ArrayStructure {
 		System.out.println("Selection Sort");
 		secondArray.selectionSort();
 		secondArray.printArray();
+		
+		System.out.println("Insertion Sort with a new array");
+		// Create a new unsorted array object for insertion sort example
+		ArrayStructure thirdArray = new ArrayStructure();
+		thirdArray.generateRandomArray();
+		thirdArray.insertionSort();
+		thirdArray.printArray();
 	}
 }
