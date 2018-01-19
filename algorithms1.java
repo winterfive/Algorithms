@@ -105,19 +105,33 @@ public class ArrayStructure {
 			}
 		}
 		if(!valueInArray) {
-			indexesWithValue = "value was not found in the Array";
+			indexesWithValue = "not found";
 		}		
 		return indexesWithValue;
 	}
 	
 	/*
-	 * Bubble Sort
+	 * Bubble Sort, ascending
 	 * void -> void
 	 */
 	public void bubbleSort() {
-		for(int i = arraySize - 1; i > 1; i--) {
+		for(int i = arraySize - 1; i >= 1; i--) {
 			for(int j = 0; j < i; j++) {
 				if(theArray[j] > theArray[j + 1]) {
+					swap(j, j + 1);					
+				}
+			}
+		}
+	}
+	
+	/*
+	 * Bubble Sort, descending
+	 * void -> void
+	 */
+	public void bubbleSortDescending() {
+		for(int i = arraySize - 1; i >= 1; i--) {
+			for(int j = 0; j < i; j++) {
+				if(theArray[j] < theArray[j + 1]) {
 					swap(j, j + 1);					
 				}
 			}
@@ -136,29 +150,47 @@ public class ArrayStructure {
 	
 	/*
 	 * Binary search for value
+	 * the CS50 "Phonebook search"
 	 * int -> void
 	 */
 	public void binarySearchForValue(int value) {
 		int lowIndex = 0;
 		int highIndex = arraySize - 1;
-		int midIndex = (highIndex + lowIndex) / 2;
+		int midIndex = 0;
 		
-		while(lowIndex < highIndex) {
-			// get middle index of current selection
+		while(lowIndex <= highIndex) {
+			midIndex = lowIndex + (highIndex - lowIndex) / 2;
 			if(value > theArray[midIndex]) {
 				lowIndex = midIndex + 1;
 			}
 			else if(value < theArray[midIndex]) {
 				highIndex = midIndex - 1;				
 			} 
-			else if(value == theArray[midIndex]) {
-				System.out.println("Binary Search: found a match for " + value + " at Index " + midIndex + ".");
-				lowIndex = highIndex + 1;
-			} else {
-				// value not found in array
-				System.out.println("Binary Search:" + value + " was not found in the array.");
+			else {				
 				lowIndex = highIndex + 1;
 			}
+		}
+		if(theArray[midIndex] == value) {
+			System.out.println("Binary Search: found a match for " + value + " at index " + midIndex + ".");
+		} else {
+			System.out.println("Binary Search: " + value + " was not found in the array.");
+		}
+	}
+	
+	/*
+	 * Selection Sort
+	 * the CS50 "filing papers" sort
+	 * void -> void
+	 */	
+	public void selectionSort() {
+		for(int i = 0; i < arraySize; i++) {
+			int min = i;
+			for(int j = i; j < arraySize; j++) {
+				if(theArray[min] > theArray[j]) {
+					min = j;
+				}
+			}
+			swap(i, min);
 		}		
 	}
 	
@@ -174,7 +206,7 @@ public class ArrayStructure {
 		
 		System.out.println("The element at index 3 is " + myArray.getElementAtIndex(3) + ".\n");
 		
-		System.out.println("Does theArray contain 14: " + myArray.doesArrayContain(14) + "\n");
+		System.out.println("Does the array contain 14: " + myArray.doesArrayContain(14) + "\n");
 		
 		System.out.println("Delete element at index 7.");
 		myArray.deleteElementInArray(7);		
@@ -185,12 +217,29 @@ public class ArrayStructure {
 		myArray.printArray();
 		
 		String indexList = myArray.linearSearchforValue(19);
-		System.out.print("Linear Search: The value 19 was found at index: " + indexList + "\n\n");	
+		if(indexList.contains("not found")) {
+			System.out.println("The value 19 was not found.\n");
+		} else {
+			System.out.print("Linear Search: the value 19 was found at index(es): " + indexList + "\n\n");	
+		}		
 		
-		System.out.println("Bubble Sort");
+		System.out.println("Bubble Sort, ascending");
 		myArray.bubbleSort();
 		myArray.printArray();
 		
-		myArray.binarySearchForValue(15);
+		System.out.println("Bubble Sort, descending");
+		myArray.bubbleSortDescending();
+		myArray.printArray();
+		
+		// Create a new unsorted array object following sort examples
+		ArrayStructure secondArray = new ArrayStructure();
+		secondArray.generateRandomArray();
+		
+		secondArray.binarySearchForValue(14);
+		secondArray.printArray();
+		
+		System.out.println("Selection Sort");
+		secondArray.selectionSort();
+		secondArray.printArray();
 	}
 }
