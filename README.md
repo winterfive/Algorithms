@@ -1,7 +1,8 @@
 # Algorithms
 
-I wrote several algorithms without using any built in methods.  This file includes:
-
+I wrote several algorithms without using any built in methods.  
+  
+ArrayStructures.java includes:
 Generate an Array of random ints  
 Print array horizontally inside a frame of pipes  
 Return element found at index  
@@ -15,3 +16,5 @@ Swap values at two indexes
 Binary Search  
 Selection Sort  
 Insertion Sort
+
+QuickSort.java displays quick sort and partitioning code
