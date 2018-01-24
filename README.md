@@ -2,7 +2,7 @@
 
 I wrote several algorithms without using any built in methods.  
   
-#### ArrayStructures.java includes:  
+#### ArrayStructures.java includes:
 Generate an Array of random ints  
 Print array horizontally inside a frame of pipes  
 Return element found at index  
@@ -17,5 +17,5 @@ Binary Search
 Selection Sort  
 Insertion Sort
 
-#### QuickSort.java includes:  
+#### QuickSort.java includes:
 Quick sort and partitioning code
