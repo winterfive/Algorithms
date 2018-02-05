@@ -18,4 +18,7 @@ Selection Sort
 Insertion Sort
 
 **QuickSort.java includes:**  
-Quick sort and partitioning code
+Quick sort and partitioning code  
+
+**StackAndQueue.java includes:**  
+Stacks, Queues (obviously)
