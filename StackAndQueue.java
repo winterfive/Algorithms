@@ -34,9 +34,13 @@ public class StackAndQueue {
 		}
 		
 		// get char for comparison
-		
-		
-		
+		for(char c : myArray) {
+			if(myStack.pop() != myQueue.remove()) {
+				System.out.println("Your word is not a palindrone");
+				break;
+			}
+		}
+		System.out.println("Your word is a palindrone.");		
 	}
 
 }
