@@ -2,8 +2,8 @@ package quickSort;
 
 import java.util.Arrays;
 
-//The Quick Sort is normally the fastest sorting algorithm
-//QuickSort code via Derek Banas
+// The Quick Sort is normally the fastest sorting algorithm
+// QuickSort code via Derek Banas
 
 public class QuickSort {
 
