@@ -7,8 +7,8 @@ import java.util.*;
  */
 
 public class StackAndQueue {
-	Stack<String> myStack = new Stack();
-	LinkedList<String> myQueue = new LinkedList();
+	Stack<Character> myStack = new Stack();
+	LinkedList<Character> myQueue = new LinkedList();
 	
 	public static void main(String[] args) {
 		
@@ -17,14 +17,18 @@ public class StackAndQueue {
 	}
 	
 	void begin() {
-		String word;
 		
 		// Get word from user
-		Scanner s = new Scanner();
-		word = s.next("Please enter a word: ");
+		Scanner s = new Scanner(System.in);
+		System.out.println("Please enter a word: ");
+		String word = s.nextLine();
+		s.close();
+		
+		char[] myArray = word.toCharArray();
+		
 		
 		// place word in queue, stack
-		for(char c : word) {
+		for(char c : myArray) {
 			myStack.push(c);
 			myQueue.add(c);
 		}
