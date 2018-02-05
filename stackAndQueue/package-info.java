@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author LeeGainer
- *
- */
-package stackAndQueue;
