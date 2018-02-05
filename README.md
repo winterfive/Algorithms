@@ -21,4 +21,4 @@ Insertion Sort
 Quick sort and partitioning code  
 
 **StackAndQueue.java includes:**  
-Stacks, Queues (obviously)
+Stacks, Queues
