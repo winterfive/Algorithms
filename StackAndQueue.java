@@ -2,8 +2,7 @@ import java.util.*;
 
 /*
  * This example uses a stack and a queue
- * Ultimately, it checks a word to see if it's a palindrone
- * (ie. returns a boolean)
+ * Ultimately, it checks a word to see if it's a palindrome
  */
 
 public class StackAndQueue {
@@ -24,8 +23,7 @@ public class StackAndQueue {
 		String word = s.nextLine();
 		s.close();
 		
-		char[] myArray = word.toCharArray();
-		
+		char[] myArray = word.toCharArray();		
 		
 		// place word in queue, stack
 		for(char c : myArray) {
@@ -34,13 +32,17 @@ public class StackAndQueue {
 		}
 		
 		// get char for comparison
-		for(char c : myArray) {
+		boolean isPalindrome = true;		
+	
+		for(int i = 0; i < myArray.length/2; i++) {
 			if(myStack.pop() != myQueue.remove()) {
-				System.out.println("Your word is not a palindrone");
+				isPalindrome = false;
 				break;
 			}
 		}
-		System.out.println("Your word is a palindrone.");		
+		
+		System.out.println("The word " + word + " is "
+				+ ((isPalindrome) ? "a palindrome." : "is not a palindrome"));		
 	}
 
 }
