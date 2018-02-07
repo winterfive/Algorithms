@@ -1,6 +1,4 @@
 # Algorithms
-
-I wrote several algorithms without using any built in methods.  
   
 **ArrayStructures.java includes:**  
 Generate an Array of random ints  
