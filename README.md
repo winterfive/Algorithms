@@ -10,7 +10,7 @@ Insert new element at end of Array
 Linear Search  
 Bubble Sort (descending)  
 Bubble Sort (ascending)  
-Swap values at two indexes (not shown in result at console) 
+Swap values at two indexes
 Binary Search  
 Selection Sort  
 Insertion Sort
