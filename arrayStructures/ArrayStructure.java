@@ -26,6 +26,7 @@ public class ArrayStructure {
 	 * void -> void
 	 */	
 	public void printArray() {
+		// print elements
 		for(int i = 0; i < arraySize; i++) {
 			if(theArray[i] < 10) {
 				System.out.print("|  " + theArray[i] + " ");
@@ -34,6 +35,7 @@ public class ArrayStructure {
 			}			
 		}
 		System.out.print("|\n");
+		// print indexes
 		for(int i = 0; i < arraySize; i++) {
 			System.out.print("|  " + i + " ");
 		}
@@ -47,7 +49,8 @@ public class ArrayStructure {
 	public int getElementAtIndex(int i) {
 		int x = 0;
 		if(i < arraySize) {
-			x = theArray[i];		}
+			x = theArray[i];		
+		}
 		return x;		
 	}
 	
@@ -101,7 +104,7 @@ public class ArrayStructure {
 		for(int i = 0; i < arraySize; i++) {
 			if(theArray[i] == value) {
 				valueInArray = true;
-				indexesWithValue+= i + " ";
+				indexesWithValue += i + " ";
 			}
 		}
 		if(!valueInArray) {
@@ -114,38 +117,62 @@ public class ArrayStructure {
 	 * Bubble Sort, ascending
 	 * void -> void
 	 */
-	public void bubbleSort() {
-		for(int i = arraySize - 1; i >= 1; i--) {
-			for(int j = 0; j < i; j++) {
-				if(theArray[j] > theArray[j + 1]) {
-					swap(j, j + 1);					
-				}
-			}
-		}
+	public int bubbleSort() {
+		int swaps = 0;
+        int totalSwaps = 0;
+       
+        for(int i = 0; i < arraySize; i++) {
+            swaps = 0;
+            for(int j = 0; j < arraySize - 1; j++) {
+                if(theArray[j] > theArray[j+1]) {
+                    // swap indexes
+                    swap(j, j+1);
+                    swaps++;
+                }            
+            }            
+            totalSwaps += swaps; 
+            
+            if(swaps == 0) {
+            		break;
+            }
+        }
+		return totalSwaps;
 	}
 	
 	/*
 	 * Bubble Sort, descending
 	 * void -> void
 	 */
-	public void bubbleSortDescending() {
-		for(int i = arraySize - 1; i >= 1; i--) {
-			for(int j = 0; j < i; j++) {
-				if(theArray[j] < theArray[j + 1]) {
-					swap(j, j + 1);					
-				}
-			}
-		}
+	public int bubbleSortDescending() {
+		int swaps = 0;
+        int totalSwaps = 0;
+       
+        for(int i = 0; i < arraySize; i++) {
+            swaps = 0;
+            for(int j = 0; j < arraySize - 1; j++) {
+                if(theArray[j] < theArray[j+1]) {
+                    // swap indexes
+                    swap(j, j+1);
+                    swaps++;
+                }            
+            }            
+            totalSwaps += swaps; 
+            
+            if(swaps == 0) {
+            		break;
+            }
+        }
+		return totalSwaps;
 	}
 	
 	/*
-	 * Swap values at 2 indexes
+	 * Swap array elements
 	 * int, int -> void
 	 */	
-	public void swap(int index1, int index2) {
-		int swap = theArray[index1];
-		theArray[index1] = theArray[index2];
-		theArray[index2] = swap;
+	public void swap(int x, int y) {
+		int temp = theArray[x];
+		theArray[x] = theArray[y];
+		theArray[y] = temp;
 	}
 	
 	/*
@@ -160,20 +187,23 @@ public class ArrayStructure {
 		
 		while(lowIndex <= highIndex) {
 			midIndex = lowIndex + (highIndex - lowIndex) / 2;
-			if(value > theArray[midIndex]) {
+			if(value == theArray[midIndex]) {
+				break;
+			}
+			// Limit search to left side of array
+			else if(value < theArray[midIndex]) {
+				highIndex = midIndex - 1;
+			}
+			// Limit search to right side of array
+			else {
 				lowIndex = midIndex + 1;
 			}
-			else if(value < theArray[midIndex]) {
-				highIndex = midIndex - 1;				
-			} 
-			else {				
-				lowIndex = highIndex + 1;
-			}
 		}
+		
 		if(theArray[midIndex] == value) {
-			System.out.println("Binary Search: found a match for " + value + " at index " + midIndex + ".");
+			System.out.println("Binary Search: " + value + " was found at index" + midIndex + ".\n");
 		} else {
-			System.out.println("Binary Search: " + value + " was not found in the array.");
+			System.out.println("Binary Search: " + value + " was not found in the array.\n");
 		}
 	}
 	
@@ -236,22 +266,24 @@ public class ArrayStructure {
 			System.out.println("The value 19 was not found.\n");
 		} else {
 			System.out.print("Linear Search: the value 19 was found at index(es): " + indexList + "\n\n");	
-		}		
-		
-		System.out.println("Bubble Sort, ascending");
-		myArray.bubbleSort();
-		myArray.printArray();
+		}
 		
 		System.out.println("Bubble Sort, descending");
-		myArray.bubbleSortDescending();
+		int totalSwaps = myArray.bubbleSortDescending();
+		myArray.printArray();
+		System.out.println("Total number of swaps: " + totalSwaps + "\n");
+		
+		System.out.println("Bubble Sort, ascending");
+		totalSwaps = myArray.bubbleSort();
+		myArray.printArray();
+		System.out.println("Total number of swaps: " + totalSwaps + "\n");		
+		
+		myArray.binarySearchForValue(14);
 		myArray.printArray();
 		
 		// Create a new unsorted array object for the following sort examples
 		ArrayStructure secondArray = new ArrayStructure();
 		secondArray.generateRandomArray();
-		
-		secondArray.binarySearchForValue(14);
-		secondArray.printArray();
 		
 		System.out.println("Selection Sort");
 		secondArray.selectionSort();
