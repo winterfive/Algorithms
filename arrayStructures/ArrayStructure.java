@@ -17,7 +17,7 @@ public class ArrayStructure {
 	 */				     
 	public void generateRandomArray() {
 		for(int i = 0; i < arraySize; i++) {
-			theArray[i] = (int)(Math.random()* 20) + 1;
+			theArray[i] = (int)(Math.random()* 30) + 1;
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class ArrayStructure {
 	}
 	
 	/*
-	 * Checks array for value
+	 * Checks if array contains value
 	 * int -> boolean
 	 */	
 	public boolean doesArrayContain(int i) {
@@ -95,6 +95,7 @@ public class ArrayStructure {
 	
 	/*
 	 * Linear Search
+     * Checks every element in array agaisnt the value
 	 * int -> String
 	 */	
 	public String linearSearchforValue(int value) {
@@ -115,7 +116,7 @@ public class ArrayStructure {
 	
 	/*
 	 * Bubble Sort, ascending
-	 * void -> void
+	 * int -> void
 	 */
 	public int bubbleSort() {
 		int swaps = 0;
@@ -141,7 +142,7 @@ public class ArrayStructure {
 	
 	/*
 	 * Bubble Sort, descending
-	 * void -> void
+	 * int -> void
 	 */
 	public int bubbleSortDescending() {
 		int swaps = 0;
@@ -201,9 +202,9 @@ public class ArrayStructure {
 		}
 		
 		if(theArray[midIndex] == value) {
-			System.out.println("Binary Search: " + value + " was found at index" + midIndex + ".\n");
+			System.out.println("Binary Search: " + value + " was found at index" + midIndex + ".");
 		} else {
-			System.out.println("Binary Search: " + value + " was not found in the array.\n");
+			System.out.println("Binary Search: " + value + " was not found in the array.");
 		}
 	}
 	
@@ -228,15 +229,23 @@ public class ArrayStructure {
 	 * the CS50 "exam booklets" sort
 	 * void -> void
 	 */
-	public void insertionSort() {		
+	public void insertionSort() {
+		// i = 1 because theArray[i] is already sorted
+		// sorted: item is higher then all items to its left
 		for(int i = 1; i < arraySize; i++) {
+			
+			// j is the iterator inside the while loop
 			int j = i;
-			int toInsert = theArray[i];
-			while((j > 0) && (theArray[j - 1] > toInsert)) {
+			
+			// key hold s a value outside the array
+			int key = theArray[i];
+			
+			while(j > 0 && theArray[j - 1] > key) {
+				// change elements in array
 				theArray[j] = theArray[j - 1];
+				theArray[j - 1] = key;
 				j--;
-			}
-			theArray[j] = toInsert;			
+			}			
 		}
 	}	
 	
@@ -285,7 +294,7 @@ public class ArrayStructure {
 		ArrayStructure secondArray = new ArrayStructure();
 		secondArray.generateRandomArray();
 		
-		System.out.println("Selection Sort");
+		System.out.println("Selection Sort with new array");
 		secondArray.selectionSort();
 		secondArray.printArray();
 		
