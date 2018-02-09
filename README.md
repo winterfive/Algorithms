@@ -8,9 +8,9 @@ Checks array for value (boolean)
 Delete element and move all following elements  
 Insert new element at end of Array  
 Linear Search  
-Bubble Sort (ascending)  
 Bubble Sort (descending)  
-Swap values at two indexes  
+Bubble Sort (ascending)  
+Swap values at two indexes (not shown in result at console) 
 Binary Search  
 Selection Sort  
 Insertion Sort
