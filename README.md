@@ -1,6 +1,6 @@
 # Algorithms
 
-I coded along with Derek Banas whiel watching his Data Structures video and then went back and rewrote these in my own style
+I coded along with Derek Banas while watching his Data Structures video and then went back and rewrote these in my own style
 to better understand how they work.
   
 **ArrayStructures.java includes:**  
