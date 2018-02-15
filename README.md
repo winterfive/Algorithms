@@ -22,4 +22,6 @@ Insertion Sort
 Quick sort and partitioning code  
 
 **StackAndQueue.java includes:**  
-Stacks, Queues
+Stacks, Queues  
+
+Please note: Some of my indents appear off in these files.  When shown in edit mode, the indents are correct.  
